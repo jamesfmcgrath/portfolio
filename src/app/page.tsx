@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from '@/components/ui/button';
 
 const HomePage = () => {
   return (
@@ -10,23 +11,14 @@ const HomePage = () => {
         and experiences.
       </p>
       <div className='mt-6'>
-        <a
-          href='/projects'
-          className='px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600 mr-4'
-        >
-          View my projects
+        <a href='/projects'>
+          <Button className='mr-4'>View my projects</Button>
         </a>
-        <a
-          href='/about'
-          className='px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600 mr-4'
-        >
-          About Me
+        <a href='/about'>
+          <Button className='mr-4'>About Me</Button>
         </a>
-        <a
-          href='/contact'
-          className='px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600'
-        >
-          Contact Me
+        <a href='/contact'>
+          <Button>Contact Me</Button>
         </a>
       </div>
     </div>
