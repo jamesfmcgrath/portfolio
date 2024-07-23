@@ -25,28 +25,28 @@ const ProjectDetailPage = () => {
     },
   };
 
-  const project = projectDetails[id as keyof typeof projectDetails];
+  const project = projectDetails[id as unknown as keyof typeof projectDetails];
 
-  if (!project) {
-    return <p>Loading...</p>;
-  }
-
-  return (
-    <div className='flex flex-col items-center justify-center min-h-screen py-2 bg-gray-100 px-4 md:px-8 lg:px-16'>
-      <h1 className='text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800'>
-        {project.title}
-      </h1>
-      <p className='mt-4 text-base sm:text-lg md:text-xl text-center text-gray-600 max-w-2xl'>
-        {project.description}
-      </p>
-      <div className='mt-6 text-base sm:text-lg md:text-xl text-gray-800 max-w-2xl'>
-        {project.content}
+  if (project) {
+    return (
+      <div className='flex flex-col items-center justify-center min-h-screen py-2 bg-gray-100 px-4 md:px-8 lg:px-16'>
+        <h1 className='text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800'>
+          {project.title}
+        </h1>
+        <p className='mt-4 text-base sm:text-lg md:text-xl text-center text-gray-600 max-w-2xl'>
+          {project.description}
+        </p>
+        <div className='mt-6 text-base sm:text-lg md:text-xl text-gray-800 max-w-2xl'>
+          {project.content}
+        </div>
+        <a href='/projects' className='mt-6 text-blue-500 hover:underline'>
+          Back to Projects
+        </a>
       </div>
-      <a href='/projects' className='mt-6 text-blue-500 hover:underline'>
-        Back to Projects
-      </a>
-    </div>
-  );
+    );
+  } else {
+    console.error('Project not found for the given ID');
+  }
 };
 
 export default ProjectDetailPage;
